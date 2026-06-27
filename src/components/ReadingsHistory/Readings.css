@@ -1,0 +1,112 @@
+.readings {
+  overflow: hidden;
+  background: rgba(255, 250, 245, 0.62);
+  border-block: 1px solid rgba(111, 62, 136, 0.08);
+}
+
+.readings-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.readings-header span::before {
+  content: "📚";
+}
+
+.readings-header p {
+  margin: 0 auto;
+  color: var(--color-muted);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.readings-slider {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding: var(--space-2) 4px var(--space-5);
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-3);
+}
+
+.readings-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.readings-slider::-webkit-scrollbar-track {
+  background: rgba(142, 95, 191, 0.1);
+  border-radius: var(--radius-pill);
+}
+
+.readings-slider::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+}
+
+.book-card {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+}
+
+.book-card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.book-card:hover img {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.book-info {
+  text-align: center;
+  padding-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.book-info h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.book-author {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.book-date {
+  color: var(--color-primary-dark);
+  font-size: 14px;
+  font-weight: 800;
+}
+ .book-card {
+  position: relative;
+  padding-top: 48px;
+}
+
+.book-year-marker {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+
+  background: var(--color-primary-dark);
+  color: #fffaf5;
+
+  font-size: 14px;
+  font-weight: 800;
+}

@@ -1,0 +1,374 @@
+/* =====================
+   Hero
+===================== */
+
+.hero {
+  min-height: calc(100vh - 112px);
+  display: flex;
+  align-items: center;
+  padding: var(--space-8) 0 var(--space-12);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  align-items: center;
+  min-height: 76vh;
+  gap: var(--space-8);
+}
+
+/* =====================
+   Hero Animations
+===================== */
+
+@keyframes twinkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: .45;
+  }
+
+  50% {
+    transform: scale(1.45) rotate(18deg);
+    opacity: 1;
+  }
+}
+
+@keyframes drift-right {
+  0% {
+    transform: translateX(0) rotate(-5deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: .9;
+  }
+
+  100% {
+    transform: translateX(90px) rotate(8deg);
+    opacity: 0;
+  }
+}
+
+@keyframes envelope-fall {
+  0% {
+    transform: translateY(-40px) rotate(-10deg);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: .9;
+  }
+
+  80% {
+    opacity: .75;
+  }
+
+  100% {
+    transform: translateY(120px) rotate(8deg) scale(.92);
+    opacity: 0;
+  }
+}
+
+@keyframes bird-float {
+  0%, 100% {
+    transform: translateY(-50%);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 8px));
+  }
+}
+
+/* =====================
+   Hero Illustration
+===================== */
+
+.hero-illustration {
+  position: relative;
+  min-height: 560px;
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* Glow خلف الطائر */
+.hero-illustration::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: -260px;
+  top: 50%;
+  width: 620px;
+  height: 620px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(142, 95, 191, 0.12), transparent 62%);
+  pointer-events: none;
+}
+
+/* المؤثرات خلف الطائر */
+.hero-particles {
+  position: absolute;
+  z-index: 2;
+  left: -260px;
+  top: 50%;
+  width: 720px;
+  height: 520px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* الطائر فوق المؤثرات */
+.hero-illustration img {
+  position: absolute;
+  z-index: 3;
+  left: -360px;
+  top: 50%;
+  width: 1120px;
+  max-width: none;
+  animation: bird-float 4s ease-in-out infinite;
+}
+
+/* Stars */
+.p-star {
+  position: absolute;
+  z-index: 2;
+  color: #b78be8;
+  font-size: 14px;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star-1 {
+  top: 8%;
+  left: 25%;
+  font-size: 13px;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  top: 18%;
+  right: 18%;
+  font-size: 19px;
+  animation-delay: .8s;
+}
+
+.star-3 {
+  top: 54%;
+  left: 12%;
+  font-size: 14px;
+  animation-delay: 1.4s;
+}
+
+.star-4 {
+  top: 72%;
+  right: 20%;
+  font-size: 16px;
+  animation-delay: .4s;
+}
+
+.star-5 {
+  top: 42%;
+  left: 4%;
+  font-size: 12px;
+  animation-delay: 2s;
+}
+
+.star-6 {
+  top: 34%;
+  right: 4%;
+  font-size: 10px;
+  animation-delay: 1.1s;
+}
+
+.star-7 {
+  top: 82%;
+  left: 34%;
+  font-size: 11px;
+  animation-delay: 2.4s;
+}
+
+/* Wind */
+.p-wind {
+  position: absolute;
+  z-index: 2;
+  color: rgba(111, 62, 136, .38);
+  font-size: 14px;
+  letter-spacing: -2px;
+  animation: drift-right 4.4s ease-in-out infinite;
+}
+
+.wind-1 {
+  top: 34%;
+  left: 0;
+}
+
+.wind-2 {
+  top: 58%;
+  left: 6%;
+  font-size: 12px;
+  animation-delay: 1.6s;
+}
+
+.wind-3 {
+  top: 78%;
+  left: -4%;
+  font-size: 13px;
+  animation-delay: .9s;
+}
+
+/* Envelopes */
+.p-env {
+  position: absolute;
+  z-index: 2;
+  font-size: 18px;
+  opacity: 0;
+  animation: envelope-fall 6s ease-in-out infinite;
+}
+
+.env-1 {
+  top: 2%;
+  left: 58%;
+  animation-delay: 0s;
+}
+
+.env-2 {
+  top: 0;
+  left: 34%;
+  font-size: 15px;
+  animation-delay: 2.3s;
+}
+
+.env-3 {
+  top: 6%;
+  right: 10%;
+  font-size: 14px;
+  animation-delay: 1.1s;
+}
+
+/* =====================
+   Hero Content
+===================== */
+
+.hero-content {
+  direction: rtl;
+  text-align: right;
+  justify-self: center;
+  max-width: 720px;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 10px var(--space-3);
+  margin-bottom: var(--space-3);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary-dark);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hero-kicker::before {
+  content: "📖";
+}
+
+.hero-title {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text);
+  font-family: "Noto Serif Arabic", serif;
+  font-size: clamp(64px, 8vw, 112px);
+  line-height: 1.05;
+  font-weight: 700;
+}
+
+.hero-description {
+  max-width: 720px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 21px;
+  line-height: 2.05;
+}
+
+.hero-join-btn {
+  margin-top: var(--space-4);
+  min-height: 56px;
+  padding: 0 var(--space-6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-dark);
+  color: #fffaf5;
+  border: 1px solid rgba(255, 250, 245, 0.6);
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.hero-join-btn:hover {
+  background: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  color: var(--color-muted);
+}
+
+.hero-meta span {
+  font-size: 17px;
+}
+
+.hero-meta span:not(:last-child)::after {
+  content: "•";
+  margin-right: var(--space-3);
+  color: var(--color-primary);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-scroll a {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary-dark);
+  font-size: 22px;
+  transition: background var(--transition), transform var(--transition);
+  animation: bounce 2s infinite;
+}
+
+.hero-scroll a:hover {
+  background: rgba(142, 95, 191, 0.16);
+  transform: translateY(4px);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
+}

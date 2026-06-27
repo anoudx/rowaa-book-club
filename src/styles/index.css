@@ -1,0 +1,309 @@
+/* =====================
+   Roaa Design System
+===================== */
+
+:root {
+  --color-bg: #f6efe7;
+  --color-bg-soft: #fbf6f0;
+  --color-surface: #fffaf5;
+
+  --color-primary: #8e5fbf;
+  --color-primary-dark: #6f3e88;
+  --color-primary-soft: rgba(142, 95, 191, 0.1);
+
+  --color-text: #2e2340;
+  --color-muted: #7b6f86;
+  --color-border: rgba(111, 62, 136, 0.14);
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-xl: 40px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 8px 20px rgba(46, 35, 64, 0.06);
+  --shadow-md: 0 16px 40px rgba(46, 35, 64, 0.1);
+  --shadow-lg: 0 24px 56px rgba(46, 35, 64, 0.14);
+
+  --transition: 300ms cubic-bezier(.22, 1, .36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Aref Ruqaa", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background: radial-gradient(rgba(70, 55, 40, 0.045) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.55;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(142, 95, 191, 0.08), transparent 28%),
+    radial-gradient(circle at 88% 74%, rgba(245, 220, 203, 0.45), transparent 34%);
+}
+
+.container {
+  width: min(100% - 48px, 1160px);
+  margin-inline: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =====================
+   Shared Sections
+===================== */
+
+.about,
+.book-month,
+.readings {
+  direction: rtl;
+  padding: var(--space-16) 0;
+}
+
+.section-label,
+.book-label,
+.readings-header span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-primary-dark);
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+}
+
+.section-label::before {
+  content: "💌";
+}
+
+.section-title,
+.about-content h2,
+.readings-header h2 {
+  margin: 0 0 var(--space-3);
+  font-family: "Noto Serif Arabic", serif;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+
+@media (max-width: 1100px) {
+  .hero-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+    grid-row: 1;
+  }
+
+  .hero-illustration {
+    grid-row: 2;
+    min-height: 360px;
+  }
+
+  .hero-illustration::before {
+    left: 50%;
+    top: 50%;
+    width: 420px;
+    height: 420px;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-particles {
+    left: 50%;
+    top: 50%;
+    width: 520px;
+    height: 420px;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-illustration img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(100%, 560px);
+    transform: translate(-50%, -50%);
+    animation: none;
+  }
+
+  .hero-description {
+    margin-inline: auto;
+  }
+
+  .hero-meta {
+    justify-content: center;
+  }
+
+  .about-wrapper,
+  .book-month-wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+
+  .about-content,
+  .book-month-content {
+    text-align: center;
+  }
+
+  .about-content p,
+  .book-description {
+    margin-inline: auto;
+  }
+
+  .about-points {
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  .book-cover {
+    order: 1;
+  }
+
+  .book-month-content {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 32px, 1160px);
+  }
+
+  .announcement-bar {
+    height: 36px;
+  }
+
+  .announcement-item {
+    font-size: 12px;
+    padding-inline: var(--space-3);
+    letter-spacing: 0.8px;
+  }
+
+  .site-header .container {
+    min-height: 64px;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .site-brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .btn {
+    min-height: 40px;
+    padding: 0 var(--space-2);
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: var(--space-8) 0 var(--space-10);
+  }
+
+  .hero-card {
+    min-height: auto;
+    gap: var(--space-5);
+  }
+
+  .hero-title {
+    font-size: 52px;
+  }
+
+  .hero-description {
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  .hero-meta {
+    gap: var(--space-2);
+  }
+
+  .hero-meta span {
+    font-size: 15px;
+  }
+
+  .about,
+  .book-month,
+  .readings {
+    padding: var(--space-10) 0;
+  }
+
+  .about-points,
+  .book-month-info {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content p,
+  .book-description {
+    font-size: 17px;
+  }
+
+  .book-card {
+    flex-basis: 170px;
+  }
+
+  .book-info h3 {
+    font-size: 20px;
+  }
+
+  .footer {
+    padding-top: var(--space-10);
+  }
+
+  .footer-links {
+    gap: var(--space-2);
+  }
+}
