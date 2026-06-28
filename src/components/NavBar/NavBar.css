@@ -2,28 +2,21 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(18px);
+
   background: rgba(246, 239, 231, 0.78);
+  backdrop-filter: blur(18px);
+
   border-bottom: 1px solid var(--color-border);
 }
 
-.site-header .container {
+.nav-row {
   min-height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
 }
 
 .site-brand img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  display: block;
-}
-
-.site-nav {
-  flex: 1;
 }
 
 .site-nav ul {
@@ -31,47 +24,88 @@
   justify-content: center;
   align-items: center;
   gap: var(--space-5);
-  list-style: none;
+
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-.site-nav li {
+.site-nav a {
+  position: relative;
+
   color: var(--color-muted);
   font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+  font-weight: 700;
+
+  text-decoration: none;
+
   transition: color var(--transition);
 }
 
-.site-nav li:hover {
+.site-nav a:hover {
   color: var(--color-primary-dark);
 }
 
-.btn {
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--color-primary-dark);
+  border-radius: 999px;
+
+  transition: width var(--transition);
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+.nav-telegram-btn {
   min-height: 44px;
   padding: 0 var(--space-3);
+
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-1);
+
   border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+
   background: var(--color-primary-soft);
   color: var(--color-primary-dark);
+
   font-size: 15px;
-  font-family: inherit;
-  font-weight: 700;
-  border: 1px solid var(--color-border);
-  cursor: pointer;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
+  font-weight: 800;
+  text-decoration: none;
+
+  transition: var(--transition);
 }
 
-.btn:hover {
+.nav-telegram-btn:hover {
   background: var(--color-primary-dark);
   color: #fffaf5;
   transform: translateY(-2px);
 }
 
-.btn::before {
-  content: "📨";
-  font-size: 14px;
+@media (max-width: 768px) {
+  .nav-row {
+    min-height: 64px;
+  }
+
+  .site-brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-telegram-btn {
+    min-height: 40px;
+    padding: 0 var(--space-2);
+    font-size: 14px;
+  }
 }

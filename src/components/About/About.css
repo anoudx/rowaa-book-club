@@ -1,56 +1,78 @@
 .about {
-  background: rgba(255, 250, 245, 0.55);
+  direction: rtl;
+  padding: var(--space-12) 0;
+  background: rgba(255, 250, 245, 0.58);
   border-block: 1px solid rgba(111, 62, 136, 0.08);
 }
 
-.about-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: var(--space-10);
+.about .section-label {
+  justify-content: center;
 }
 
-.about-content {
-  text-align: right;
+.about .section-label::before {
+  content: "💌";
 }
 
-.about-content p {
-  font-size: 19px;
-  line-height: 1.95;
-  max-width: 720px;
+.about h2 {
+  margin: 0 0 var(--space-3);
+
+  color: var(--color-text);
+
+  font-family: "Noto Serif Arabic", serif;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.about p {
+  margin: 0 auto;
+  max-width: 760px;
+
   color: var(--color-muted);
-  margin: 0;
+
+  font-size: 18px;
+  line-height: 2;
 }
 
-.about-points {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-2);
-  font-size: 16px;
-  margin-top: var(--space-4);
-}
+.about-point {
+  min-height: 64px;
 
-.about-points div {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
-  background: var(--color-surface);
+  justify-content: center;
+
+  padding: 14px 20px;
+
+  background: rgba(255, 250, 245, 0.82);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  padding: 12px var(--space-3);
-  font-weight: 700;
+
   color: var(--color-text);
+
+  font-size: 17px;
+  font-weight: 800;
+  text-align: center;
+
   box-shadow: var(--shadow-sm);
 }
 
-.about-image {
-  display: flex;
-  justify-content: center;
-  border-radius: var(--radius-xl);
-}
+@media (max-width: 768px) {
+  .about {
+    padding: var(--space-10) 0;
+  }
 
-.about-image img {
-  width: 580px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  .about h2 {
+    font-size: 34px;
+  }
+
+  .about p {
+    font-size: 18px;
+    line-height: 2;
+  }
+
+  .about-point {
+    min-height: 56px;
+    border-radius: var(--radius-lg);
+    font-size: 17px;
+  }
 }

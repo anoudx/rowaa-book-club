@@ -7,45 +7,40 @@ export default function BookMonth() {
 <section className="book-month" id="book-month">
   <div className="container">
 
-    <div className="book-month-wrapper">
+    <div className="row align-items-center gy-5">
 
-      <div className="book-cover">
-        <img src={iliadCover} alt="الإلياذة" />
+      <div className="col-lg-5">
+
+        <div className="book-cover">
+          <img src={iliadCover} alt="الإلياذة" />
+        </div>
+
       </div>
 
-      <div className="book-month-content">
+      {/* Content */}
+      <div className="col-lg-7">
 
-        <span className="book-label">
-          كتاب الشهر — يونيو 2026
-        </span>
+ <div className="book-month-content">
 
-        <h2>الإلياذة</h2>
+  <span className="section-label">
+    كتاب الشهر
+  </span>
 
-        <p className="book-month-author">
-          هوميروس
-        </p>
+  <h2 className="section-title">
+    الإلياذة
+  </h2>
 
-        <p className="book-description">
-          ملحمة يونانية خالدة تُعد من أقدم الأعمال الأدبية في التاريخ،
-          تروي أحداث حرب طروادة من خلال شخصياتها الأسطورية وصراعاتها الإنسانية،
-          وتطرح أسئلة عن البطولة والشرف والغضب والمصير.
-        </p>
+  <p className="book-description">
+    ملحمة يونانية خالدة تروي أحداث حرب طروادة،
+    وتتناول الشجاعة والمجد والإنسان في مواجهة القدر.
+  </p>
 
-      <div className="book-month-info">
-  <div>
-    <span>النوع</span>
-    <strong>ملحمة شعرية</strong>
+  <div className="book-meta">
+    <span>✍️ هوميروس</span>
+    <span>📄 250 صفحة</span>
+    <span>📅 يوليو 2026</span>
   </div>
 
-  <div>
-    <span>الأصل</span>
-    <strong>اليونان القديمة</strong>
-  </div>
-
-  <div>
-    <span>الموضوع</span>
-    <strong>البطولة والمصير</strong>
-  </div>
 </div>
 
       </div>

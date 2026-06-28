@@ -24,16 +24,29 @@ const sortedBooks = [...readings].sort((a, b) => {
 })
 
   return (
-    <section className="readings" id="readings">
-      <div className="container">
-        <div className="readings-header">
-          <span>مكتبة رواء</span>
-          <h2>القراءات السابقة</h2>
-          <p>رحلة النادي بين كتب قرأناها وناقشناها معًا.</p>
-        </div>
+<section className="readings" id="readings">
+  <div className="container">
 
-        <div className="readings-slider">
-          {sortedBooks.map((book, index) => {
+    <div className="row justify-content-center text-center mb-5">
+      <div className="col-lg-8">
+
+        <span className="section-label">
+          مكتبة رواء
+        </span>
+
+        <h2 className="section-title">
+          القراءات السابقة
+        </h2>
+
+        <p>
+          رحلة النادي بين الكتب التي قرأناها وناقشناها معًا.
+        </p>
+
+      </div>
+    </div>
+
+    <div className="readings-slider">
+      {sortedBooks.map((book, index) => {
             const showYear =
               index === 0 || book.year !== sortedBooks[index - 1].year
 
@@ -57,8 +70,10 @@ const sortedBooks = [...readings].sort((a, b) => {
               </article>
             )
           })}
-        </div>
-      </div>
-    </section>
+    </div>
+
+  </div>
+</section>
   )
 }
+

@@ -5,38 +5,35 @@ import './NavBar.css'
 export default function NavBar() {
   return (
     <header className="site-header">
-      <div className="container nav-container">
-<a
-  href="https://t.me/riwaclub"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="btn"
->
-  تيليغرام
-</a>
+      <div className="container">
+        <div className="row align-items-center nav-row">
 
-        <nav className="site-nav" aria-label="القائمة الرئيسية">
-          <ul>
-            <li>
-              <a href="#about">عنّا</a>
-            </li>
+          <div className="col-4 col-lg-3">
+            <a
+              href="https://t.me/riwaclub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-telegram-btn"
+            >
+              📨 تيليغرام
+            </a>
+          </div>
 
-            <li>
-              <a href="#book-month">كتاب الشهر</a>
-            </li>
+          <nav className="col-lg-6 d-none d-lg-block site-nav">
+            <ul>
+              <li><a href="#about">عنّا</a></li>
+              <li><a href="#book-month">كتاب الشهر</a></li>
+              <li><a href="#readings">القراءات</a></li>
+            </ul>
+          </nav>
 
-            <li>
-              <a href="#readings">القراءات</a>
-            </li>
-          </ul>
-        </nav>
+          <div className="col-8 col-lg-3 d-flex justify-content-end">
+            <a href="#" className="site-brand">
+              <img src={logo} alt="رواء" />
+            </a>
+          </div>
 
-        <div className="site-brand">
-          <a href="#">
-            <img src={logo} alt="رواء" />
-          </a>
         </div>
-
       </div>
     </header>
   )
