@@ -55,6 +55,8 @@ export default function Hero() {
             <img
               src={illustration}
               alt="Reading Illustration"
+              width="1120"
+              height="900"
             />
           </div>
 

@@ -130,14 +130,18 @@
   pointer-events: none;
   overflow: visible;
 }
-
 .hero-illustration img {
   position: absolute;
   z-index: 3;
   left: -360px;
   top: 50%;
+
   width: 1120px;
   max-width: none;
+  height: auto;
+  display: block;
+
+  transform: translateY(-50%);
   animation: bird-float 4s ease-in-out infinite;
 }
 
