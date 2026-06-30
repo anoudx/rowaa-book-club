@@ -146,38 +146,30 @@
 /* Responsive */
 
 @media (max-width: 768px) {
-  .readings {
-    padding: var(--space-10) 0;
-  }
-
-  .readings p {
-    font-size: 16px;
-  }
-
   .readings-slider {
-    gap: var(--space-3);
-    padding-inline: var(--space-1);
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 24px 28px;
+    scrollbar-width: none;
+  }
+
+  .readings-slider::-webkit-scrollbar {
+    display: none;
   }
 
   .book-card {
-    flex-basis: 170px;
-    padding-top: 40px;
+    flex: 0 0 82%;
+    max-width: 320px;
+    scroll-snap-align: center;
   }
 
-  .book-year-marker {
-    padding: 5px 14px;
-    font-size: 13px;
-  }
-
-  .book-info h3 {
-    font-size: 19px;
-  }
-
-  .book-author {
-    font-size: 14px;
-  }
-
-  .book-date {
-    font-size: 13px;
+  .book-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4.2;
+    object-fit: cover;
+    border-radius: 26px;
   }
 }
