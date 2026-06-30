@@ -5,6 +5,12 @@
   border-block: 1px solid rgba(111, 62, 136, 0.08);
 }
 
+.about-header {
+  max-width: 820px;
+  margin: 0 auto var(--space-8);
+  text-align: center;
+}
+
 .about .section-label {
   justify-content: center;
 }
@@ -15,46 +21,100 @@
 
 .about h2 {
   margin: 0 0 var(--space-3);
-
   color: var(--color-text);
-
   font-family: "Noto Serif Arabic", serif;
-  font-size: clamp(34px, 4vw, 48px);
+  font-size: clamp(36px, 4vw, 54px);
   line-height: 1.35;
   font-weight: 700;
 }
 
-.about p {
+.about-header p {
   margin: 0 auto;
   max-width: 760px;
-
   color: var(--color-muted);
-
   font-size: 18px;
   line-height: 2;
 }
 
-.about-point {
-  min-height: 64px;
+.about-list {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.about-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 135px;
+  display: grid;
+  grid-template-columns: 84px 1fr 76px;
+  align-items: center;
+  gap: 22px;
+
+  padding: 24px 28px;
+
+  background: rgba(255, 250, 245, 0.86);
+  border: 1px solid var(--color-border);
+  border-radius: 32px;
+
+  box-shadow: 0 14px 34px rgba(43, 34, 48, 0.04);
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(111, 62, 136, 0.22),
+    transparent
+  );
+}
+
+
+
+.about-card-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 14px 20px;
+  background: rgba(185, 143, 191, 0.18);
+  color: var(--color-primary);
 
-  background: rgba(255, 250, 245, 0.82);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-
-  color: var(--color-text);
-
-  font-size: 17px;
-  font-weight: 800;
-  text-align: center;
-
-  box-shadow: var(--shadow-sm);
+  font-size: 30px;
 }
+
+.about-card-content {
+  text-align: right;
+}
+
+.about-card h3 {
+  margin: 0 0 8px;
+  color: var(--color-text);
+  font-family: "Noto Serif Arabic", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+
+.about-card p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
 
 @media (max-width: 768px) {
   .about {
@@ -65,14 +125,31 @@
     font-size: 34px;
   }
 
-  .about p {
-    font-size: 18px;
+  .about-header p {
+    font-size: 17px;
     line-height: 2;
   }
 
-  .about-point {
-    min-height: 56px;
-    border-radius: var(--radius-lg);
-    font-size: 17px;
+  .about-card {
+    grid-template-columns: 58px 1fr;
+    gap: 16px;
+    min-height: auto;
+    padding: 22px 20px;
+    border-radius: 26px;
   }
+
+  .about-card-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+
+  .about-card h3 {
+    font-size: 22px;
+  }
+
+  .about-card p {
+    font-size: 16px;
+  }
+
 }

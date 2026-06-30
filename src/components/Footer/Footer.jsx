@@ -15,7 +15,7 @@ export default function Footer() {
 
         <div className="footer-links">
           <a href="#about">من نحن</a>
-          <a href="#book">كتاب الشهر</a>
+          <a href="#book-month">كتاب الشهر</a>
           <a href="#readings">القراءات السابقة</a>
         </div>
 

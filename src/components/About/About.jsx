@@ -1,45 +1,97 @@
-import React from 'react'
-import './About.css'
+import React from "react";
+import { motion } from "framer-motion";
+import "./About.css";
+
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 35,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
+const aboutItems = [
+  {
+    number: "01",
+    title: "لقاء شهري",
+    text: "نجتمع كل شهر في جلسة ثقافية حول كتاب مختار.",
+    icon: "📅",
+  },
+  {
+    number: "02",
+    title: "نقاشات أدبية",
+    text: "نفتح حوارًا عميقًا، نتبادل الآراء، ونكتشف زوايا جديدة.",
+    icon: "💬",
+  },
+  {
+    number: "03",
+    title: "اختيارات متنوعة",
+    text: "نختار كتبًا من مجالات مختلفة بين الأدب، الفكر، والتنمية.",
+    icon: "📖",
+  },
+  {
+    number: "04",
+    title: "مجتمع قارئات",
+    text: "مجتمع نسائي يجمعنا حب القراءة وشغف الثقافة.",
+    icon: "🤍",
+  },
+];
 
 export default function About() {
   return (
-    <section className="about" id="about">
+    <motion.section
+      className="about"
+      id="about"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      variants={container}
+    >
       <div className="container">
+        <motion.div className="about-header" variants={fadeUp}>
+          <span className="section-label">من نحن</span>
 
-        <div className="row justify-content-center text-center">
-          <div className="col-lg-8">
-            <span className="section-label">من نحن</span>
+          <h2>ما نقدمه في رواء</h2>
 
-            <h2>
-              مساحة للقراءة والحوار
-            </h2>
+          <p>
+            تجارب ثقافية تثري القارئة، وتجمعنا حول شغف القراءة والحوار
+            واكتشاف الجمال بين الكتب والمعرفة.
+          </p>
+        </motion.div>
 
-            <p>
-              رواء نادي كتاب وثقافة يجمع القارئات في مساحة هادئة للنقاش،
-              وتبادل الأفكار، واكتشاف الجمال بين الكتب والمعرفة.
-            </p>
-          </div>
-        </div>
+        <motion.div className="about-list" variants={container}>
+          {aboutItems.map((item) => (
+            <motion.article
+              className="about-card"
+              key={item.number}
+              variants={fadeUp}
+            >
+              <div className="about-card-icon">{item.icon}</div>
 
-        <div className="row g-3 mt-5 justify-content-center about-points">
-          <div className="col-12 col-md-6 col-lg-3">
-            <div className="about-point">لقاء شهري</div>
-          </div>
-
-          <div className="col-12 col-md-6 col-lg-3">
-            <div className="about-point">نقاشات أدبية</div>
-          </div>
-
-          <div className="col-12 col-md-6 col-lg-3">
-            <div className="about-point">اختيارات متنوعة</div>
-          </div>
-
-          <div className="col-12 col-md-6 col-lg-3">
-            <div className="about-point">مجتمع قارئات</div>
-          </div>
-        </div>
-
+              <div className="about-card-content">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
       </div>
-    </section>
-  )
+    </motion.section>
+  );
 }
